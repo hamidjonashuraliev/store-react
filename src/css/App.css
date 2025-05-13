@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 50vmin;
   pointer-events: none;
 }
 
@@ -19,11 +19,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
 }
 
 .App-link {
-  color: rgb(112, 76, 182);
+  color: rgb(87, 19, 223);
 }
 
 @keyframes App-logo-float {
@@ -38,13 +38,6 @@
   }
 }
 
-
-
-
-
-
-
-
 /* Global reset */
 * {
   margin: 0;
@@ -52,7 +45,8 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: Arial, sans-serif;
 }
@@ -67,14 +61,14 @@ body, html {
   align-items: center;
   position: relative;
   text-align: center;
-  color: #fff;
+  color: #ffff;
 }
 
 /* Content inside hero */
 .hero-content {
-  max-width: 500px;
+  max-width: 600px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0, 5); /* Semi-transparent background */
   border-radius: 10px;
 }
 
@@ -99,12 +93,11 @@ body, html {
 }
 
 .cta-button:hover {
-  background-color: #0ecdee; /* Hover effect */
+  background-color: cyan; /* Hover effect */
 }
 
-
 .hero {
-  background-image: url("/public/store/istockphoto-1126678409-1024x1024.png");
+  background-image: url("/public/store/ales.jpg");
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;

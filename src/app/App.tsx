@@ -1,5 +1,5 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "../css/App.css";
 import "../css/navbar.css";
@@ -10,7 +10,6 @@ import { BlogsPage } from "./screens/BlogsPage";
 import { MemberPage } from "./screens/MemberPage";
 import { HelpPage } from "./screens/HelpPage";
 import { LoginPage } from "./screens/LoginPage";
-import {  } from "./screens/HomePage";
 import { NavbarHome } from "./components/header";
 import { NavbarStore, } from "./components/header/store";
 import { NavbarOthers } from "./components/header/others";
@@ -21,18 +20,18 @@ import HeroSection from "./components/header/HeroSection";
 
 
 
-
 function App() {
+    const [path, setPath] = useState ();
     const main_path = window.location.pathname;
 
     return (
         <Router>
             {main_path == "/" ? (
-                <NavbarHome />
+                <NavbarHome  setPath={setPath}/>
             ) : main_path.includes("/store") ? (
-                <NavbarStore />
+                <NavbarStore   setPath={setPath}/>
             ) : (
-                <NavbarOthers />
+                <NavbarOthers  setPath={setPath}/>
             )}
             
             {/* <nav>
@@ -79,25 +78,17 @@ function App() {
             <Route path="/" element={<HomePage />} />
             </Routes>
         </Router>
-
-
-
-
     );
 }
 
 export default App;
-
-// function Home() {
-//     return <h2>Home</h2>;
-// }
 
 
 function HomePage() {
   return (
     <div>
       <HeroSection /> {/* HeroSection bu yerda ko'rsatiladi */}
-      <h2>Welcome to our website!</h2>
+      <h2>Hamidjon qattiq harakat qil!</h2>
       {/* Boshqa kontentlar */}
     </div>
   );

@@ -1,184 +1,76 @@
-
-
-/* .home_navbar {
-  background: url("/public/store/1212.png.jpg");
-} */
-
-* 
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  min-height: 100vh;
+/* /* Navbar.css */
+.format.home_navbar {
+  width: 100%;
+  height: 75px;
+  display: flex;
   background-size: cover;
-  background-position: center;
+  background: linear-gradient(180deg, #ffff, hsl(194, 97%, 25%));
+  transition: background 0.5s ease-in-out;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 100px;
-  background: rgba(255, 255, 255, 0.1);
+.home_navbar .navbar_config {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  -webkit-backdrop-filter: blur(10px); /* Prefiks qo'shildi */
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  z-index: 100;
+  justify-content: center;
+  margin-top: 5px;
+  gap: 70px;
+  transition: background 0.5s ease-in-out;
 }
 
-.header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.header:hover::before {
-  left: 100%;
-}
-
-.logo {
-  color: #fff;
-  font-size: 25px;
+.home_navbar a {
   text-decoration: none;
-  font-weight: 600;
-  cursor: default;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 100px;
+.home_navbar .underline {
+  display: block;
+  content: attr(data-text);
+  border-bottom: solid 3px #04b4ea;
 }
-
-.navbar a {
-  color: #fff;
-  font-size: 18px;
-  text-decoration: none;
-  margin-left: 100px;
-  transition: 0.3s;
- 
-}
-
-.navbar a:hover {
-  color: #f00;
-}
-
-#menu-icon {
-  font-size: 36px;
-  color: #fff;
-  display: none;
-}
-
-/* BREAKPOINTS */
-@media (max-width: 992px) {
-  .header {
-    padding: 1.25rem 4%;
-  }
-}
-
-@media (max-width: 768px) {
-  #menu-icon {
-    display: block;
-  }
-  .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 0.5rem 4%;
-    display: none;
-    flex-direction: column;
-  }
-  .navbar.active {
-    display: block;
-  }
-  .navbar a {
-    display: block;
-    margin: 1.5rem 0;
-  }
-  .nav-bg {
-    position: absolute;
-    top: 79px;
-    left: 0;
-    width: 100%;
-    height: 295px;
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    -webkit-backdrop-filter: blur(10px); /* Prefiks qo'shildi */
-    backdrop-filter: blur(10px);
-    z-index: 99;
-    display: none;
-  }
-  .nav-bg.active {
-    display: block;
-  }
-}
-
-/* Glassmorphism hover effect */
-.home_navbar .hover_line {
+.home_navbar .hover-line a {
   position: relative;
-  display: inline-block;
+  color: #ffff;
+}
+
+.nav-item {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.4em;
+  transition: transform 0.3s ease-in-out, color 0.5s;
+  color: #ffff;
   overflow: hidden;
-  margin-right: 20px; /* Havolalar orasini ochish uchun qo'shildi */
+  gap: 20px;
+}
+.nav-item.underline {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.5em;
+  transition: transform 0.3s ease-in-out, color 0.5s;
+  color: #04b4ea;
+  /* color: #007c00; */
+  overflow: hidden;
+  font-weight: bold;
 }
 
-.home_navbar .hover_line:before,
-.home_navbar .hover_line:after {
-  content: "";
+.nav-item:hover {
+  color: transparent;
+  filter: drop-shadow(0 0 20px cyan);
+  opacity: 0.9;
+}
+
+.nav-item::after {
+  content: attr(data-text);
   position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #ffeb3b; /* Yuqoridagi va pastdagi chiziq rangi */
-  transform: scaleX(0);
-  transition: transform 150ms ease-in-out;
-}
-
-.home_navbar .hover_line:before {
-  top: 0;
   left: 0;
-  transform-origin: left;
+  width: 0%;
+  overflow: hidden;
+  /* color: #26c326; */
+  color: #04b4ea;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.5s ease-in-out;
+  border-right: 4px solid #04b4ea;
+  transition: width 0.5s, color 0.5s;
+  -webkit-text-stroke: 1.3px #04b4ea;
 }
-
-.home_navbar .hover_line:after {
-  bottom: 0;
-  right: 0;
-  transform-origin: right;
+.nav-item:hover::after {
+  clip-path: inset(0 0 0 0);
+  width: 100%;
 }
-
-.home_navbar .hover_line:hover:before,
-.home_navbar .hover_line:hover:after {
-  transform: scaleX(1);
-}
-
-.home_navbar .hover_line:hover {
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  transition: background 150ms ease-in-out, backdrop-filter 150ms ease-in-out, -webkit-backdrop-filter 150ms ease-in-out;
-}
-
-.home_navbar .hover_line:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 150ms ease-in-out;
-}
-
-
