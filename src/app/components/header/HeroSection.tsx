@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-
+import { useEffect, useState } from "react";
 
 const textArray = [
-  "Our Services", 
-  "Create New Opportunities", 
+  "Our Services",
+  "Create New Opportunities",
   "Open the Path to the Future"
 ];
 
@@ -22,7 +21,7 @@ const HeroSection: React.FC = () => {
         setCurrentText(textArray[index].slice(0, charIndex));
         setCharIndex((prev) => prev - 1);
       }
-      
+
       if (!isDeleting && charIndex === textArray[index].length + 1) {
         setTimeout(() => setIsDeleting(true), 1500);
       } else if (isDeleting && charIndex === 0) {
@@ -58,3 +57,4 @@ const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
+

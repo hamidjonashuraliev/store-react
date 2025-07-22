@@ -1,31 +1,37 @@
+import { Badge, Box, Button, Container, IconButton, Stack } from "@mui/material";
 import React from "react";
-import Container from "@mui/material/Container";
-import { Badge, Box, Button, IconButton, Stack } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import {  NavLink, useLocation } from "react-router-dom";
+import "../../../css/navbar.css";
 
-export function NavbarHome(props: any) {
+
+export function NavbarHome({ setPath }: { setPath?: (path: string) => void }) {
+  const location = useLocation();
     return (
-        <div className="format home_navbar">
+      <div className="format home_navbar">
       <Container>
         <Stack flexDirection="row"
         className="navbar_config"
         justifyContent={"space-between"}>
+
+
           <Box>
+             <NavLink to="/">
             <img height="65px"  src="/icons/john.svg" alt="Logo" />
+          </NavLink>
           </Box>
 
           <Stack
              flexDirection="row"
              justifyContent="space-evenly"
              alignItems={"center"}
-             className="nav-item">
+             className="nav_item">
 
-            <Box className="hover-line">
+            <Box className="hover_line">
 
             <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                onClick={props.setPath}
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+                onClick={() => setPath && setPath("/")}
                  data-text=" Home">
                 Home
             </NavLink>
@@ -34,8 +40,8 @@ export function NavbarHome(props: any) {
             <Box className="hover_line">
             <NavLink
                 to="/store"
-               className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                onClick={props.setPath}
+               className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+               onClick={() => setPath && setPath("/store")}
                 data-text="Stores">
                 Stores
             </NavLink>
@@ -44,8 +50,8 @@ export function NavbarHome(props: any) {
             <Box className="hover_line">
             <NavLink
                 to="/allproducts"
-               className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                onClick={props.setPath}
+               className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+            onClick={() => setPath && setPath("/allproducts")}
                 data-text="AllProducts">
                 AllProducts
             </NavLink>
@@ -54,8 +60,8 @@ export function NavbarHome(props: any) {
             <Box className="hover_line">
             <NavLink
                 to="/orders"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                 onClick={props.setPath}
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+                onClick={() => setPath && setPath("/orders")}
                 data-text="Orders">
                 Orders
             </NavLink>
@@ -64,8 +70,8 @@ export function NavbarHome(props: any) {
             <Box className="hover_line">
             <NavLink
                 to="/blogs"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                 onClick={props.setPath}
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+                onClick={() => setPath && setPath("/blogs")}
                 data-text="Blogs">
                 Blogs
             </NavLink>
@@ -74,8 +80,8 @@ export function NavbarHome(props: any) {
             <Box className="hover_line">
             <NavLink
                 to="/help"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                 onClick={props.setPath}
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+                onClick={() => setPath && setPath("/help")}
                 data-text="Help">
                 Help
             </NavLink>
@@ -84,31 +90,15 @@ export function NavbarHome(props: any) {
             <Box className="hover_line">
             <NavLink
                 to="/mypage"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                 onClick={props.setPath}
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+                onClick={() => setPath && setPath("/mypage")}
                 data-text="MyPage">
                 MyPage
             </NavLink>
             </Box>
 
 
-            {/* <Box className="hover_line">
-            <NavLink
-                to="/signup"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                data-text="SignUp">
-                SignUp
-            </NavLink>
-            </Box>
 
-            <Box className="hover_line">
-            <NavLink
-                to="/login"
-                className={({ isActive }) => (isActive ? "nav-item underline" : "nav-item")}
-                data-text="Login">
-                Login
-            </NavLink>
-            </Box> */}
 
             <Box className="hover_line">
          <IconButton
@@ -125,13 +115,31 @@ export function NavbarHome(props: any) {
            aria-haspopup="true"
            aria-expanded={undefined}>
 
-            <Badge badgeContent={3} color="secondary">
+            <Badge badgeContent={1} color="secondary">
               <img src="/icons/shopify.svg" alt="Cart Icon" />
             </Badge>
          </IconButton>
             </Box>
 
+  <Box className="hover_line">
+            <NavLink
+                to="/signup"
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+              onClick={() => setPath && setPath("/signup")}
+                data-text="SignUp">
+                SignUp
+            </NavLink>
+            </Box>
 
+            <Box className="hover_line">
+            <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? "nav_item underline" : "nav_item")}
+            onClick={() => setPath && setPath("/login")}
+                data-text="Login">
+                Login
+            </NavLink>
+            </Box>
 
 
 
@@ -139,6 +147,15 @@ export function NavbarHome(props: any) {
           </Stack>
         </Stack>
       </Container>
+
     </div>
+
+
+
+
     );
 }
+
+
+
+

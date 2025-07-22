@@ -2,5 +2,5 @@ import { Container } from "@mui/material";
 import React from "react";
 
 export function LoginPage() {
-    return <Container>Login Page</Container>;
+    return <Container>LoginPage</Container>;
 }

@@ -1,14 +1,34 @@
-/* /* Navbar.css */
-.format.home_navbar {
+.format.home_navbar,
+.format_others.home_navbar,
+.format_store.home_navbar {
   width: 100%;
   height: 75px;
   display: flex;
+  background: linear-gradient(180deg, #ffffff, hsl(194, 97%, 25%));
   background-size: cover;
-  background: linear-gradient(180deg, #ffff, hsl(194, 97%, 25%));
+  background-position: center;
+  background-repeat: no-repeat;
   transition: background 0.5s ease-in-out;
 }
 
-.home_navbar .navbar_config {
+.background_others,
+.background_store {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  z-index: 0;
+  /* pointer-events: none; */
+}
+
+.format.home_navbar .navbar_config,
+.format_others.home_navbar .navbar_config,
+.format_store.home_navbar .navbar_config {
   display: flex;
   justify-content: center;
   margin-top: 5px;
@@ -25,38 +45,38 @@
   content: attr(data-text);
   border-bottom: solid 3px #04b4ea;
 }
-.home_navbar .hover-line a {
+.home_navbar .hover_line a {
   position: relative;
-  color: #ffff;
+  color: #ffffff;
 }
 
-.nav-item {
+.nav_item {
   position: relative;
   text-decoration: none;
-  font-size: 1.4em;
+  font-size: 1.25em;
   transition: transform 0.3s ease-in-out, color 0.5s;
-  color: #ffff;
   overflow: hidden;
-  gap: 20px;
+  color: #ffffff;
+  /* color: #04b4ea; */
+  gap: 10px;
 }
-.nav-item.underline {
+.nav_item.underline {
   position: relative;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.3em;
   transition: transform 0.3s ease-in-out, color 0.5s;
-  color: #04b4ea;
+  color: #04b4ea !important;
   /* color: #007c00; */
   overflow: hidden;
   font-weight: bold;
 }
 
-.nav-item:hover {
+.nav_item:hover {
   color: transparent;
   filter: drop-shadow(0 0 20px cyan);
   opacity: 0.9;
 }
-
-.nav-item::after {
+.nav_item::after {
   content: attr(data-text);
   position: absolute;
   left: 0;
@@ -65,12 +85,17 @@
   /* color: #26c326; */
   color: #04b4ea;
   clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.5s ease-in-out;
   border-right: 4px solid #04b4ea;
-  transition: width 0.5s, color 0.5s;
+  transition: clip-path 0.5s ease-in-out, width 0.5s, color 0.5s;
   -webkit-text-stroke: 1.3px #04b4ea;
 }
-.nav-item:hover::after {
+.nav_item:hover::after {
   clip-path: inset(0 0 0 0);
   width: 100%;
+}
+
+.nav_item:hover:not(.underline) {
+  color: cyan;
+  filter: drop-shadow(0 0 20px cyan);
+  opacity: 0.9;
 }

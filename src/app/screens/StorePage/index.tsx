@@ -2,5 +2,5 @@ import { Container } from "@mui/material";
 import React from "react";
 
 export function StorePage() {
-    return <Container>Store Page</Container>;
+    return <Container>StorePage</Container>;
 }
